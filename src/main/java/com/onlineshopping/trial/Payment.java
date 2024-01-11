@@ -18,6 +18,6 @@ public class Payment {
     @Column
     private UUID paymentId;
     @Column
-    private float amount;
+    private double amount;
 }
 

@@ -20,6 +20,6 @@ public class Cart {
     @Column
     private int quantity;
     @Column
-    private float price;
+    private double price;
 
 }

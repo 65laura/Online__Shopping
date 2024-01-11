@@ -1,5 +1,4 @@
 package com.onlineshopping.trial;
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,6 +20,10 @@ public class Products {
     private String productName;
     @Column
     private UUID categoryId;
+    @Column
+    private double price;
+    @Transient
+    private double discountedPrice;
 
 
 }
