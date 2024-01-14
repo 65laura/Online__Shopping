@@ -1,5 +1,6 @@
 package com.onlineshopping.trial.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,6 +19,7 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column
     private UUID orderId;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
     @Column
     private Date date;
     @Column
