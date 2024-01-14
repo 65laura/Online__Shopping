@@ -1,5 +1,4 @@
-package com.onlineshopping.trial;
-
+package com.onlineshopping.trial.model;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,16 +7,23 @@ import lombok.NoArgsConstructor;
 import java.util.UUID;
 
 @Entity
-@Table(name = "Payment")
+@Table
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Payment {
+public class Products {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column
-    private UUID paymentId;
+    private UUID productId;
     @Column
-    private double amount;
-}
+    private String productName;
+    @Column
+    private UUID categoryId;
+    @Column
+    private double price;
+    @Transient
+    private double discountedPrice;
 
+
+}

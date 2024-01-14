@@ -1,4 +1,4 @@
-package com.onlineshopping.trial;
+package com.onlineshopping.trial.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -8,21 +8,17 @@ import lombok.NoArgsConstructor;
 import java.util.UUID;
 
 @Entity
-@Table(name = "Customers")
+@Table(name = "Seller")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Customers {
+public class Seller {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column
-    private UUID customerId;
+    private UUID sellerId;
     @Column
-    private String customerName;
+    private String sellerName;
     @Column
-    private int customerContact;
-    @Column
-    private String customerAddress;
-    @OneToOne(mappedBy = "customers")
-    private User user;
+    private UUID productId;
 }

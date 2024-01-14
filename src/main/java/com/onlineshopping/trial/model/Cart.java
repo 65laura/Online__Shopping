@@ -1,26 +1,25 @@
-package com.onlineshopping.trial;
+package com.onlineshopping.trial.model;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 import java.util.UUID;
 
 @Entity
-@Table(name = "app_user")
+@Table(name = "Cart")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column
-    private String email;
+    private UUID cartId;
     @Column
-    private  String password;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "customer_id")
-    private Customers customers;
-
-
+    private int quantity;
+    @Column
+    private double price;
 
 }

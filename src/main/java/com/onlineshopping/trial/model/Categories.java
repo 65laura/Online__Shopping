@@ -1,4 +1,4 @@
-package com.onlineshopping.trial;
+package com.onlineshopping.trial.model;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,7 +18,14 @@ public class Categories {
     private UUID categoryId;
     @Column
     private String categoryName;
-    @Column
-    private String categoryType;
+    public enum CategoryType{
+        women,
+        men,
+        kids,
+        dresses,home,beauty,electronics,bottoms,
+        tops,bags,jewelry,accessories
+    };
+    @Enumerated(EnumType.STRING)
+    private CategoryType categoryType;
 
 }

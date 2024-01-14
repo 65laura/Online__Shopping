@@ -1,29 +1,25 @@
-package com.onlineshopping.trial;
+package com.onlineshopping.trial.model;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
 import java.util.UUID;
 
 @Entity
-@Table
+@Table(name = "customer_order")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Products {
+public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column
-    private UUID productId;
+    private UUID orderId;
     @Column
-    private String productName;
+    private Date date;
     @Column
-    private UUID categoryId;
-    @Column
-    private double price;
-    @Transient
-    private double discountedPrice;
-
-
+    private UUID customerId;
 }
