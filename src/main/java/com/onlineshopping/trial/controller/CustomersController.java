@@ -1,7 +1,8 @@
-package com.onlineshopping.trial;
-
+package com.onlineshopping.trial.controller;
+import com.onlineshopping.trial.service.CustomerService;
 import com.onlineshopping.trial.model.Customers;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,7 +16,13 @@ public class CustomersController {
             @Autowired
     private CustomersController(CustomerService customerService){this.customerService=customerService;}
     @PostMapping
-    public ResponseEntity<Customers>createCustomer(@RequestBody Customers customers){
+    public ResponseEntity<Customers> createCustomer(@RequestBody Customers customers){
+
+try {
+        Customers newCustomer = customerService.createCustomer(customers);
+        return ResponseEntity.ok(newCustomer);
+    } catch (Exception e) {
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
 
     }
-}
+}}

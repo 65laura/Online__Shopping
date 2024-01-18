@@ -1,4 +1,5 @@
 package com.onlineshopping.trial.model;
+import com.fasterxml.jackson.annotation.JsonAlias;
 import com.onlineshopping.trial.model.Customers;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -15,6 +16,12 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column
     private String email;
+    @Column
+    @JsonAlias("first_name")
+    private String firstName;
+    @Column
+    @JsonAlias("last_name")
+    private String lastName;
     @Column
     private  String password;
     @OneToOne(cascade = CascadeType.ALL)

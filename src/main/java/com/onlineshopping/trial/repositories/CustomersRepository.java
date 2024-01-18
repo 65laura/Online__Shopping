@@ -11,4 +11,5 @@ public interface CustomersRepository extends JpaRepository<Customers, UUID> {
     @Query(value = "SELECT c FROM Customers c ")
     List<Customers> findAllCustomers(Sort sort);
 
+
 }
