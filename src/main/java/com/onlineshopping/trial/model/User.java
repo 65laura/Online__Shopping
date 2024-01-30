@@ -26,10 +26,8 @@ public class User implements UserDetails {
     @Column
     private String email;
     @Column
-    @JsonAlias("first_name")
     private String firstName;
     @Column
-    @JsonAlias("last_name")
     private String lastName;
     @Column
     private  String password;
@@ -38,11 +36,29 @@ public class User implements UserDetails {
     private Customers customers;
     @Enumerated
     private Role role;
+
+    public String getEmail(){
+        return this.email;
+    }
+    public void setEmail(String email){
+        this.email=email;
+    }
+    public void setPassword(String password){
+        this.password=password;
+    }
+    public  void setRole(Role role){
+        this.role=role;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority(role.name()));
     }
 
+    public UUID getId()
+    {
+        return this.userId;
+    }
     @Override
     public String getPassword() {
         return password;
@@ -72,4 +88,5 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
 }
