@@ -1,6 +1,7 @@
 package com.onlineshopping.trial.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.onlineshopping.trial.enums.OrderStates;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,4 +25,7 @@ public class Order {
     private Date date;
     @Column
     private UUID customerId;
+    @Enumerated(EnumType.STRING)
+    private OrderStates states;
+
 }
