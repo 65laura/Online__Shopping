@@ -1,5 +1,4 @@
 package com.onlineshopping.trial.service;
-
 import com.onlineshopping.trial.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -21,3 +20,4 @@ public class UserService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return userRepository.findByEmail(username).orElseThrow();
     }}
+
