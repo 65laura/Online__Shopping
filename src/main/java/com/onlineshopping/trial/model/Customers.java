@@ -25,4 +25,9 @@ public class Customers {
     private String customerAddress;
     @OneToOne(mappedBy = "customers")
     private User user;
+    public Customers(UUID customerId, String customerAddress, String customerName) {
+        this.customerId = customerId;
+        this.customerAddress= customerAddress;
+        this.customerName = customerName;
+    }
 }
