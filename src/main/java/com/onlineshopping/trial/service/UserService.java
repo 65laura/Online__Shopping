@@ -20,5 +20,7 @@ public interface UserService extends UserDetailsService{
     public ResponseEntity<User> editUser(UUID user_id);
 
     public ResponseEntity<Page<User>> getAllUsers(Pageable pageable);
+
+   public ResponseEntity<User> getSingleUser(UUID user_id);
 }
 

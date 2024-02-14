@@ -14,4 +14,7 @@ public interface  UserRepository extends JpaRepository<User, UUID> {
     Optional<User> findByEmail(String email);
     @Query(value = "SELECT u FROM User u")
     Page<User> getAllUsers(Pageable pageable);
+    @Query(value = "SELECT u FROM User u WHERE u.userId = :user_id")
+    Optional<User> getSingleUserById(@Param("user_id") UUID user_id);
+
 }

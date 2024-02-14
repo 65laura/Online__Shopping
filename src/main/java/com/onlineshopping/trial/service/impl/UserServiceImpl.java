@@ -6,10 +6,12 @@ import com.onlineshopping.trial.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.UUID;
 
@@ -38,6 +40,12 @@ public class UserServiceImpl implements UserService{
         Page<User> users =  userRepository.getAllUsers(pageable);
         return ResponseEntity.ok(users);
     }
+
+    @Override
+    public ResponseEntity<User> getSingleUser(UUID user_id) {
+        User user =  userRepository.getSingleUserById(user_id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User with such an ID not found"));
+        return ResponseEntity.ok(user);}
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return userRepository.findByEmail(username).orElseThrow();

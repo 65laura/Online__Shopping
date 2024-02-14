@@ -8,6 +8,8 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import java.util.HashMap;
+import java.util.UUID;
+
 @Service
 public class AuthService {
     @Autowired
@@ -22,7 +24,7 @@ public class AuthService {
     public RequestResponse signUp(RequestResponse registrationRequest) {
         RequestResponse resp = new RequestResponse();
         try {
-            User user = new User();
+            User user = new User(UUID.randomUUID(), "xyz@gmail.com", "laura");
             user.setEmail(registrationRequest.getEmail());
             user.setPassword(passwordEncoder.encode(registrationRequest.getPassword()));
             System.out.println(passwordEncoder.encode(registrationRequest.getPassword()));
