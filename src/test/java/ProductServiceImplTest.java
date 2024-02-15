@@ -1,7 +1,8 @@
 import com.onlineshopping.trial.TrialApplication;
 import com.onlineshopping.trial.model.Customers;
-import com.onlineshopping.trial.repositories.CustomersRepository;
+import com.onlineshopping.trial.model.Products;
 import com.onlineshopping.trial.service.impl.CustomerServiceImpl;
+import com.onlineshopping.trial.service.impl.ProductsServiceImpl;
 import org.junit.Test;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
@@ -12,16 +13,18 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
 import java.util.UUID;
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK,classes = TrialApplication.class)
 @AutoConfigureMockMvc
 @TestPropertySource(locations = "classpath:application-test.properties")
-public class CustomerServiceImplTest {
+public class ProductServiceImplTest {
     @Autowired
-    CustomerServiceImpl customerService;
-    Customers addCustomer;
-    Customers testCustomer = new Customers(UUID.randomUUID(),"Masaka","Ruzindaza");
+    ProductsServiceImpl productsService;
+    Products addProduct;
+    Products testProduct = new Products(UUID.randomUUID(),"rice",UUID.randomUUID(),35000);
 
     @BeforeEach
     void setUp() {
@@ -30,10 +33,8 @@ public class CustomerServiceImplTest {
     void tearDown() {
     }
     @Test
-    public void testAddCustomer() {
-        addCustomer = customerService.createCustomer(testCustomer);
-        Assertions.assertNotNull(addCustomer);
+    public void testAddProduct() {
+        addProduct= productsService.createProduct(testProduct);
+        Assertions.assertNotNull(addProduct);
     }
-
-
 }

@@ -24,6 +24,12 @@ public class Products {
     private double price;
     @Transient
     private double discountedPrice;
+    public Products(UUID productId, String productName, UUID categoryId,double price) {
+        this.productId= productId;
+        this.productName= productName;
+        this.categoryId= categoryId;
+        this.price=price;
 
+    }
 
 }
