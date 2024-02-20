@@ -2,6 +2,7 @@ package com.onlineshopping.trial.controller;
 import com.onlineshopping.trial.model.User;
 import com.onlineshopping.trial.repositories.UserRepository;
 import com.onlineshopping.trial.service.UserService;
+import com.onlineshopping.trial.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -22,6 +23,7 @@ public class UserController {
     private UserService userService;
     @Autowired
     private UserRepository userRepository;
+
     @PostMapping("users/create")
     public User createUser(@RequestBody User user){
         return userService.createUser(user);

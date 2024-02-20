@@ -1,5 +1,4 @@
 package com.onlineshopping.trial.service.impl;
-
 import com.onlineshopping.trial.model.User;
 import com.onlineshopping.trial.repositories.UserRepository;
 import com.onlineshopping.trial.service.UserService;
@@ -12,7 +11,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
-
 import java.util.UUID;
 
 @Service
