@@ -19,15 +19,12 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column
     private UUID userId;
-    @Setter
-    @Getter
     @Column
     private String email;
     @Column
     private String firstName;
     @Column
     private String lastName;
-    @Setter
     @Column
     private  String password;
     @OneToOne(cascade = CascadeType.ALL)

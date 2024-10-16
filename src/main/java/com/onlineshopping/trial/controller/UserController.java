@@ -36,8 +36,6 @@ public class UserController {
     public ResponseEntity<User> getSingleUserById(@PathVariable UUID id){
         return userService.getSingleUser(id);
     }
-
-
     @GetMapping("/users/single")
     @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('USER')")
     public ResponseEntity<Object> getMyDetails(){

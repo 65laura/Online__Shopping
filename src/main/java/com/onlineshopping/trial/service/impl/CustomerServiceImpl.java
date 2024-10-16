@@ -10,8 +10,12 @@ import org.springframework.stereotype.Service;
 @Service
 @Transactional
 public class CustomerServiceImpl implements CustomerService {
-    @Autowired
-    public CustomersRepository customersRepository;
+    private final CustomersRepository customersRepository;
+
+    public CustomerServiceImpl(final CustomersRepository customersRepository) {
+        this.customersRepository = customersRepository;
+    }
+
     @Override
     public Customers createCustomer(Customers customers) {
 
