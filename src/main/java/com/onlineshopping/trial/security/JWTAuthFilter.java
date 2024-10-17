@@ -1,6 +1,4 @@
-package com.onlineshopping.trial.config;
-import com.onlineshopping.trial.service.JWTUtils;
-import com.onlineshopping.trial.service.UserService;
+package com.onlineshopping.trial.security;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

@@ -1,6 +1,5 @@
-package com.onlineshopping.trial.controller;
+package com.onlineshopping.trial.security;
 import com.onlineshopping.trial.dto.RequestResponse;
-import com.onlineshopping.trial.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

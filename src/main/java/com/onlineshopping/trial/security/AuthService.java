@@ -1,4 +1,4 @@
-package com.onlineshopping.trial.service;
+package com.onlineshopping.trial.security;
 import com.onlineshopping.trial.dto.RequestResponse;
 import com.onlineshopping.trial.model.User;
 import com.onlineshopping.trial.repositories.UserRepository;

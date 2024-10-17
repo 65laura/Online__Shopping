@@ -32,7 +32,7 @@ public class ProductsController {
             @ApiResponse(responseCode = "500", description = "internal server error", content = @Content(schema = @Schema(implementation = ErrorResponse.class))) })
     @SecurityRequirement(name = "Bearer Authentication")
     @PostMapping("create")
-    Products createProduct(ProductDto productDto){
+    public Products createProduct(ProductDto productDto){
         return productService.createProduct(productDto);
     }
   }

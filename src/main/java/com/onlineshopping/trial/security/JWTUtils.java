@@ -1,4 +1,4 @@
-package com.onlineshopping.trial.service;
+package com.onlineshopping.trial.security;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import org.springframework.security.core.userdetails.UserDetails;
