@@ -25,8 +25,9 @@ public class SecurityConfig {
         httpSecurity.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(request -> request.requestMatchers("/auth/**").permitAll()
                         .requestMatchers("/users/all").hasAnyAuthority("Admin")
-                        .requestMatchers("/products/**").hasAnyAuthority("Customer")
+                        .requestMatchers("/product/**").hasAnyAuthority("Customer")
                         .requestMatchers("Order").hasAnyAuthority("Seller")
+                        .requestMatchers("/public/**", "/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
                         .anyRequest().authenticated())
                 .sessionManagement(manager -> manager.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider()).addFilterBefore(

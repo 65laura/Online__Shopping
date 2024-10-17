@@ -2,7 +2,7 @@ package com.onlineshopping.trial.dto;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.onlineshopping.trial.enums.Role;
-import com.onlineshopping.trial.model.Products;
+import com.onlineshopping.trial.products.model.Products;
 import com.onlineshopping.trial.model.User;
 import lombok.Data;
 

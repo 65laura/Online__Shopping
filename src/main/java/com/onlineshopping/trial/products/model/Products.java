@@ -1,4 +1,4 @@
-package com.onlineshopping.trial.model;
+package com.onlineshopping.trial.products.model;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,6 +24,9 @@ public class Products {
     private double price;
     @Transient
     private double discountedPrice;
+    @Column
+    private String description;
+
     public Products(UUID productId, String productName, UUID categoryId,double price) {
         this.productId= productId;
         this.productName= productName;

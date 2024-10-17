@@ -16,14 +16,14 @@ public class Categories {
     private UUID categoryId;
     @Column
     private String categoryName;
-    public enum CategoryType{
-        women,
-        men,
-        kids,
-        dresses,home,beauty,electronics,bottoms,
-        tops,bags,jewelry,accessories
+    public enum ECategoryType{
+       WOMEN,
+        MEN,
+        KIDS,
+        DRESSES,HOME,BEAUTY,ELECTRONICS,BOTTOMS,
+        TOPS,BAGS,JEWELRY,ACCESSORIES
     };
     @Enumerated(EnumType.STRING)
-    private CategoryType categoryType;
+    private ECategoryType categoryType;
 
 }
