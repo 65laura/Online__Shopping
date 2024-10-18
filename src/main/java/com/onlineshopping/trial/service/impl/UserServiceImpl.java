@@ -31,12 +31,12 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public ResponseEntity<String> deleteUser(UUID user_id) {
+    public ResponseEntity<String> deleteUser(UUID userId) {
         return null;
     }
 
     @Override
-    public ResponseEntity<User> editUser(UUID user_id) {
+    public ResponseEntity<User> editUser(UUID userId) {
         return null;
     }
 
