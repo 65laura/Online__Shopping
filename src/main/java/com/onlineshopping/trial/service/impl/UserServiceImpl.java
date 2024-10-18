@@ -1,7 +1,10 @@
 package com.onlineshopping.trial.service.impl;
+import com.onlineshopping.trial.dto.UserDto;
 import com.onlineshopping.trial.model.User;
 import com.onlineshopping.trial.repositories.UserRepository;
+import com.onlineshopping.trial.service.IUserServiceMapper;
 import com.onlineshopping.trial.service.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -14,13 +17,17 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.UUID;
 
 @Service
+@RequiredArgsConstructor
 public class UserServiceImpl implements UserService{
 
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
+    private final IUserServiceMapper userServiceMapper;
+
+
+
     @Override
-    public User createUser(User user) {
-        return userRepository.save(user);
+    public User createUser(UserDto userdto) {
+        return userServiceMapper.toUserServiceEntity(userdto);
     }
 
     @Override
@@ -40,8 +47,8 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public ResponseEntity<User> getSingleUser(UUID user_id) {
-        User user =  userRepository.getSingleUserById(user_id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User with such an ID not found"));
+    public ResponseEntity<User> getSingleUser(UUID userId) {
+        User user =  userRepository.findUserById(userId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User with such an ID not found"));
         return ResponseEntity.ok(user);}
 
     @Override

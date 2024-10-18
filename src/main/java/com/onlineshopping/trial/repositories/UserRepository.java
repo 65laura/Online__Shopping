@@ -5,16 +5,17 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 import java.util.UUID;
+@Repository
 public interface  UserRepository extends JpaRepository<User, UUID> {
 
     Optional<User> findByEmail(String email);
     @Query(value = "SELECT u FROM User u")
     Page<User> getAllUsers(Pageable pageable);
-    @Query(value = "SELECT u FROM User u WHERE u.userId = :user_id")
-    Optional<User> getSingleUserById(@Param("user_id") UUID user_id);
+    @Query(value = "SELECT u FROM User u WHERE u.userId = :userId")
+    Optional<User> findUserById(@Param("user_id") UUID userId);
 
 }

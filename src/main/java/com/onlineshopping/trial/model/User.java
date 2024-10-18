@@ -1,10 +1,13 @@
 package com.onlineshopping.trial.model;
-import com.onlineshopping.trial.enums.Role;
+import com.onlineshopping.trial.enums.EGender;
+import com.onlineshopping.trial.enums.ERole;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
@@ -27,13 +30,15 @@ public class User implements UserDetails {
     private String lastName;
     @Column
     private  String password;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "customer_id")
-    private Customers customers;
-    @Setter
-    @Enumerated
-    private Role role;
+    @Column
+    private LocalDateTime dateOfBirth;
+    @Column
+    private String phoneNumber;
 
+    @Enumerated(value = EnumType.STRING)
+    private ERole role;
+    @Enumerated(value = EnumType.STRING)
+    private EGender gender;
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority(role.name()));

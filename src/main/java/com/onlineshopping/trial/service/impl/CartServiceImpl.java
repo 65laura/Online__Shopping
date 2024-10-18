@@ -5,16 +5,16 @@ import com.onlineshopping.trial.repositories.CartRepository;
 import com.onlineshopping.trial.service.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 public class CartServiceImpl implements CartService {
     @Autowired
     private CartRepository cartRepository;
-    @Override
-    public Cart findAllOrdersByCartId(UUID cartId) {
-        return cartRepository.findAll( List.of());
 
+    @Override
+    public Optional<Cart> findByCartId(UUID cartId) {
+        return cartRepository.findByCartId(cartId);
     }
 }
    

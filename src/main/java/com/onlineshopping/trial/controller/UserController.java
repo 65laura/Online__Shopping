@@ -1,8 +1,10 @@
 package com.onlineshopping.trial.controller;
+import com.onlineshopping.trial.dto.UserDto;
 import com.onlineshopping.trial.model.User;
 import com.onlineshopping.trial.repositories.UserRepository;
 import com.onlineshopping.trial.service.UserService;
 import com.onlineshopping.trial.service.impl.UserServiceImpl;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -11,24 +13,22 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
-
+@RestController
+@RequestMapping("user")
+@RequiredArgsConstructor
 public class UserController {
 
-    private UserService userService;
-    @Autowired
-    private UserRepository userRepository;
+    private final UserService userService;
+    private final UserRepository userRepository;
 
-    @PostMapping("users/create")
-    public User createUser(@RequestBody User user){
-        return userService.createUser(user);
+    @PostMapping("create")
+    public User createUser(@RequestBody UserDto userdto){
+        return userService.createUser(userdto);
     }
-    @GetMapping("users/all")
+    @GetMapping("all")
     public ResponseEntity<Page<User>> getAllUsers(Pageable pageable){
         return userService.getAllUsers(pageable);
     }

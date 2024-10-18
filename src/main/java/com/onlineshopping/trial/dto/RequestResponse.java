@@ -1,7 +1,7 @@
 package com.onlineshopping.trial.dto;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.onlineshopping.trial.enums.Role;
+import com.onlineshopping.trial.enums.ERole;
 import com.onlineshopping.trial.products.model.Products;
 import com.onlineshopping.trial.model.User;
 import lombok.Data;
@@ -33,8 +33,8 @@ public class RequestResponse {
     public String getPassword(){
         return this.password;
     }
-    public Role getRole(){
-        return Role.valueOf(this.role);
+    public ERole getRole(){
+        return ERole.valueOf(this.role);
     }
     public  User setUsers(User user){
         return user = this.user;
