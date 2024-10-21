@@ -14,9 +14,9 @@ import static org.yaml.snakeyaml.tokens.Token.ID.Key;
 @Component
 public class JWTUtils {
     private  SecretKey key;
-    private static final long EXPIRATION_TIME=86400000;
+    private static final long EXPIRATION_TIME= 24 * 60 * 60;
     public JWTUtils(){
-        String secreteString="5567874678987h56789k345678l45678345678987654345678908765435h6789087b6545n567896m";
+        String secreteString= "5567874678987h56789k345678l45678345678987654345678908765435h6789087b6545n567896m";
         byte[] keyBytes= Base64.getDecoder().decode(secreteString.getBytes(StandardCharsets.UTF_8));
         this.key=new SecretKeySpec(keyBytes,"HmacSHA256");
     }

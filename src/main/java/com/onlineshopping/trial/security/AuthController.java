@@ -1,5 +1,6 @@
 package com.onlineshopping.trial.security;
 import com.onlineshopping.trial.dto.RequestResponse;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,19 +10,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/auth")
+@RequiredArgsConstructor
 public class AuthController {
-    @Autowired
-    private AuthService authService;
+    private final AuthService authService;
     @PostMapping("/signup")
-    public ResponseEntity<RequestResponse> signUp(@RequestBody RequestResponse signupRequest){
-        return ResponseEntity.ok(authService.signUp(signupRequest));
+    public RequestResponse signUp(@RequestBody RequestResponse signupRequest){
+        return authService.signUp(signupRequest);
     }
     @PostMapping("/login")
-    public ResponseEntity<RequestResponse> signIn(@RequestBody RequestResponse signInRequest){
-        return ResponseEntity.ok(authService.signIn(signInRequest));
+    public RequestResponse signIn(@RequestBody RequestResponse signInRequest){
+        return authService.signIn(signInRequest);
     }
     @PostMapping("/refresh")
-    public ResponseEntity<RequestResponse> refreshToken(@RequestBody RequestResponse refreshTokenRequest){
-        return ResponseEntity.ok(authService.refreshToken(refreshTokenRequest));
+    public RequestResponse refreshToken(@RequestBody RequestResponse refreshTokenRequest){
+        return (authService.refreshToken(refreshTokenRequest));
     }
 }
