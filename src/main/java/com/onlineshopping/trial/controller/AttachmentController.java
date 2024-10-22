@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 @RestController
-@RequestMapping("attachment")
+@RequestMapping("")
 @RequiredArgsConstructor
 public class AttachmentController {
     private final IAttachmentService attachmentService;
